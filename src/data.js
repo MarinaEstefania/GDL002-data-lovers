@@ -1,13 +1,41 @@
-let i=0
-let pokeInfo = (i) => {
-let pokeArray = (Object.entries(POKEMON.pokemon[i]));
-return (pokeArray);
+
+const proccessData = (data) => { //funcion que crea un nuevo arreglo 'newArray' que contiene nombre, id y url
+  const newArray = data.map((item)=> {
+    const newObj = {};
+    newObj["nombre"] = item.name;
+    newObj["id"] = item.id;
+    newObj["urlImagen"] = item.img;
+    return newObj;
+  })
+  return newArray;
+  
 };
 
+const showAll = (newData) => { //funcion showAll muestra en pantalla Todos los pokemon con su nombre e imagen
+  const container = document.getElementById('pokemones');
+  
+  for (let i = 0; i< newData.length;i++) {
+    const nodeArticule = document.createElement('articule');
+    const nodeImagen = document.createElement('img');
+    const nodeP = document.createElement('p');
+    
+    const textN=document.createTextNode(newData[i].nombre);
+    nodeP.appendChild(textN);
+    nodeArticule.appendChild(nodeP);
+    container.appendChild(nodeArticule);
+
+    nodeImagen.src=newData[i].urlImagen;
+    nodeArticule.appendChild(nodeImagen);
+    container.appendChild(nodeArticule);
+  }
+}
+
+const miniData = proccessData(POKEMON.pokemon); // crea la variable miniData la cual contiene el arreglo 'newArray' 
+showAll(miniData); // llama a la funcion ShowAll
 
 
 
-const showInformationOnePokemon = (objPokemon) =>{ //objPokemon: deberia ser un objeto2
+const showInformationOnePokemon = (objPokemon) => { //funcion que muestra toda la informacion del pokemon PAG 2
   const table = document.getElementById('pokeTable');
   for (const i in objPokemon){
       const fila = document.createElement('tr');
@@ -23,17 +51,13 @@ const showInformationOnePokemon = (objPokemon) =>{ //objPokemon: deberia ser un 
 
       table.appendChild(fila);
   }
-
 }
+
 
 
 // esta es una función de ejemplo
 // puedes ver como agregamos la función a nuestro objeto global window
 /* AQUI SE ESCRIBIRAN LAS FUNCIONES
-
-Pruebas unitarias
-
-El boilerplate de este proyecto no incluye pruebas unitarias, pero esperamos que escribas tus propias pruebas unitarias para las funciones encargadas de procesar, filtrar y ordenar la data, así como calcular estadísticas. Para ello te recomendamos implementar las siguientes funciones en el archivo src/data.js:
 
     filterData(data, condition): esta función filter o filtrar recibiría la data, y nos retornaría aquellos datos que sí cumplan con la condición.
 
@@ -41,9 +65,6 @@ El boilerplate de este proyecto no incluye pruebas unitarias, pero esperamos que
 
     computeStats(data): la función compute o calcular, nos permitirá hacer cálculos estadísticos básicos para ser mostrados de acuerdo a la data proporcionada.
 
-Estas son propuestas de funciones que podrías implementar.
-
-El archivo src/data.js debe tener una cobertura del 70% de statements (sentencias), functions (funciones), lines (líneas), y branches (ramas).
 
 Estas funciones deben ser puras e independientes del DOM. Estas funciones serán después usadas desde el archivo src/main.js, al cargar la página, y cada vez que el usuario interactúe (click, filtrado, ordenado, ...).
 
@@ -55,9 +76,5 @@ const example = (n) => {
 console.log(example(n));
 
 window.example = example;
-
-El corazón de este proyecto es la manipulación de datos a través de arreglos y objetos. La idea de este archivo es contener toda la funcionalidad que corresponda a obtener, procesar y manipular datos.
-
-En este archivo esperamos que implementes las funciones detalladas en la sección de Pruebas Unitarias.
 
 */
