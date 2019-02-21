@@ -1,7 +1,5 @@
-const proccessData = (data) => {
-  //console.log(data);
+const proccessData = (data) => { //funcion que crea un nuevo arreglo 'newArray' que contiene nombre, id y url
   const newArray = data.map((item)=> {
-    //console.log(item); 
     const newObj = {};
     newObj["nombre"] = item.name;
     newObj["id"] = item.id;
@@ -65,14 +63,8 @@ return (pokeArray);
   const newImage = document.createElement("img");
  */
   //myImage.src='http://www.serebii.net/pokemongo/pokemon/004.png';
-  //myImage.appendChild(myImage);
-  
-    
-
-  
+  //myImage.appendChild(myImage);  
  /*  return hijo;
-
-
 }
 document.getElementById('pokemons').appendChild(showAll(miniData))
 
@@ -99,13 +91,11 @@ const pokeSelectedFunction = (pokeSelected) => {//funcion que permite selecciona
 } */
 
 
+
+
 // esta es una función de ejemplo
 // puedes ver como agregamos la función a nuestro objeto global window
 /* AQUI SE ESCRIBIRAN LAS FUNCIONES
-
-Pruebas unitarias
-
-El boilerplate de este proyecto no incluye pruebas unitarias, pero esperamos que escribas tus propias pruebas unitarias para las funciones encargadas de procesar, filtrar y ordenar la data, así como calcular estadísticas. Para ello te recomendamos implementar las siguientes funciones en el archivo src/data.js:
 
     filterData(data, condition): esta función filter o filtrar recibiría la data, y nos retornaría aquellos datos que sí cumplan con la condición.
 
@@ -113,9 +103,6 @@ El boilerplate de este proyecto no incluye pruebas unitarias, pero esperamos que
 
     computeStats(data): la función compute o calcular, nos permitirá hacer cálculos estadísticos básicos para ser mostrados de acuerdo a la data proporcionada.
 
-Estas son propuestas de funciones que podrías implementar.
-
-El archivo src/data.js debe tener una cobertura del 70% de statements (sentencias), functions (funciones), lines (líneas), y branches (ramas).
 
 Estas funciones deben ser puras e independientes del DOM. Estas funciones serán después usadas desde el archivo src/main.js, al cargar la página, y cada vez que el usuario interactúe (click, filtrado, ordenado, ...).
 
@@ -127,9 +114,5 @@ const example = (n) => {
 console.log(example(n));
 
 window.example = example;
-
-El corazón de este proyecto es la manipulación de datos a través de arreglos y objetos. La idea de este archivo es contener toda la funcionalidad que corresponda a obtener, procesar y manipular datos.
-
-En este archivo esperamos que implementes las funciones detalladas en la sección de Pruebas Unitarias.
 
 */
