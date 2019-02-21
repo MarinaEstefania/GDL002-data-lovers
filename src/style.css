@@ -1,5 +1,16 @@
-#pokemones div{
-    color: green;
-    
 
+#pokemones{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div {
+    height: 150px;
+    width: 150px;
+    border: 1px solid; 
+    text-align: center;
+}
+
+label {
+    display: block;
 }
