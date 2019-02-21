@@ -1,10 +1,12 @@
 
+// SECCION QUE MUESTRA TODOS LOS POKEMON EN LA PAGINA PRINCIPAL
 const proccessData = (data) => { //funcion que crea un nuevo arreglo 'newArray' que contiene nombre, id y url
   const newArray = data.map((item)=> {
     const newObj = {};
     newObj["nombre"] = item.name;
     newObj["id"] = item.id;
     newObj["urlImagen"] = item.img;
+   
     return newObj;
   })
   return newArray;
@@ -17,16 +19,17 @@ const showAll = (newData) => { //funcion showAll muestra en pantalla Todos los p
   for (let i = 0; i< newData.length;i++) {
     const nodeArticule = document.createElement('articule');
     const nodeImagen = document.createElement('img');
-    const nodeP = document.createElement('p');
+    const nodeP = document.createElement('label');
     
     const textN=document.createTextNode(newData[i].nombre);
     nodeP.appendChild(textN);
     nodeArticule.appendChild(nodeP);
     container.appendChild(nodeArticule);
-
+    
     nodeImagen.src=newData[i].urlImagen;
     nodeArticule.appendChild(nodeImagen);
     container.appendChild(nodeArticule);
+    
   }
 }
 
@@ -34,7 +37,7 @@ const miniData = proccessData(POKEMON.pokemon); // crea la variable miniData la 
 showAll(miniData); // llama a la funcion ShowAll
 
 
-
+//PAGINA 2. INFORMACION DEL POKEMON
 const showInformationOnePokemon = (objPokemon) => { //funcion que muestra toda la informacion del pokemon PAG 2
   const table = document.getElementById('pokeTable');
   for (const i in objPokemon){
@@ -52,8 +55,8 @@ const showInformationOnePokemon = (objPokemon) => { //funcion que muestra toda l
       table.appendChild(fila);
   }
 }
-
-
+const numOfPokeSelecc = document.getElementById('numOfPokeSelecc').value;
+document.getElementById("pokeTable").value = showInformationOnePokemon(POKEMON.pokemon[numOfPokeSelecc-1]);
 
 // esta es una función de ejemplo
 // puedes ver como agregamos la función a nuestro objeto global window
