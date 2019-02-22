@@ -1,19 +1,22 @@
 //*************************FILTROS */
 
 //*Filtro por TIPO
-const filterType = (data, type) =>{
-  const arrayFiltered = data.filter ((tipo) => {
-    return tipo.type[0||1||2]==type;
-    })
-    console.log(arrayFiltered)
-  return arrayFiltered;
+/* const filterType = (data, type) =>{ //ok
+  const arrayFiltered = data.filter ((tipo) => { //ok
+    const arraySelected = tipo.type[i]==type;
+
+    return arraySelected 
+    }) //ok
+    console.log(arrayFiltered) //ok
+  return arrayFiltered; //ok
 };
 const type = "Flying";//VARIABLE TIPO
 filterType(POKEMON.pokemon, type);
-
+ */
 //**********//Funcion que crea TABLA de info de un POKEMON */
 const showInformationOnePokemon = (objPokemon) =>{ 
   const table = document.getElementById('pokeTable');
+  table.innerHTML = '';
     for (const i in objPokemon){
     //console.log(i);
       //if ()
@@ -32,9 +35,6 @@ const showInformationOnePokemon = (objPokemon) =>{
     
   }
 } 
-
-
-
 
 //******** */funcion que crea objetos 'newArray' que contienen nombre, id y url
 const proccessData = (data) => { 
@@ -69,11 +69,8 @@ const showAll = (newData) => {
     contentDiv.appendChild(contentImage);
     container.appendChild(contentDiv); 
     contentDiv.addEventListener("click", function(event){showInformationOnePokemon(POKEMON.pokemon[i])});
-    }
-    
   }
-  
-//showInformationOnePokemon(POKEMON.pokemon[5])
+}
 const miniData = proccessData(POKEMON.pokemon);
 showAll(miniData);
 
