@@ -1,95 +1,81 @@
-const proccessData = (data) => { //funcion que crea un nuevo arreglo 'newArray' que contiene nombre, id y url
+//*************************FILTROS */
+
+//*Filtro por TIPO
+const filterType = (data, type) =>{
+  const arrayFiltered = data.filter ((tipo) => {
+    return tipo.type[0||1||2]==type;
+    })
+    console.log(arrayFiltered)
+  return arrayFiltered;
+};
+const type = "Flying";//VARIABLE TIPO
+filterType(POKEMON.pokemon, type);
+
+//**********//Funcion que crea TABLA de info de un POKEMON */
+const showInformationOnePokemon = (objPokemon) =>{ 
+  const table = document.getElementById('pokeTable');
+    for (const i in objPokemon){
+    //console.log(i);
+      //if ()
+        const fila = document.createElement('tr');
+        const columna = document.createElement('td');
+        const columna2 = document.createElement('td');
+
+        const titulo = document.createTextNode(i);
+        const value = document.createTextNode(objPokemon[i]);
+        columna.appendChild(titulo);
+        columna2.appendChild(value);
+        fila.appendChild(columna);
+        fila.appendChild(columna2);
+
+        table.appendChild(fila);
+    
+  }
+} 
+
+
+
+
+//******** */funcion que crea objetos 'newArray' que contienen nombre, id y url
+const proccessData = (data) => { 
   const newArray = data.map((item)=> {
     const newObj = {};
     newObj["nombre"] = item.name;
     newObj["id"] = item.id;
     newObj["urlImagen"] = item.img;
-    //console.log(newObj);
+    newObj['numero'] = item.num;
+    // console.log(newObj);
     return newObj
   })
   return newArray;
 };
-//console.log();
 
-const showAll = (newData) => {
-  //console.log(newData);
+//****** */ Funcion que Muestra en pantalla Img y nombre de TODOS los pokemon c/su div
+const showAll = (newData) => { 
   const container = document.getElementById('pokemones');
-  //console.log(container);
-  
   for (let i = 0; i< newData.length; i++) { //recorrido del arreglo
     const contentDiv = document.createElement('div');
     const contentLabel = document.createElement('label');
     const contentImage = document.createElement('img');
     
-    const t = document.createTextNode(newData[i].nombre);
-    contentLabel.appendChild(t);
+    const num = document.createTextNode(newData[i].numero + ' ')
+    const name = document.createTextNode(newData[i].nombre);
+    contentLabel.appendChild(num);
+    contentLabel.appendChild(name);
     contentDiv.appendChild(contentLabel);
     container.appendChild(contentDiv);
     
     contentImage.src = newData[i].urlImagen;
     contentDiv.appendChild(contentImage);
     container.appendChild(contentDiv); 
+    contentDiv.addEventListener("click", function(event){showInformationOnePokemon(POKEMON.pokemon[i])});
     }
+    
   }
-
+  
+//showInformationOnePokemon(POKEMON.pokemon[5])
 const miniData = proccessData(POKEMON.pokemon);
 showAll(miniData);
-
-
-
-
-
-
-
-
-/* let i=0
-let pokeInfo = (i) => {
-let pokeArray = (Object.entries(POKEMON.pokemon[i]));
-return (pokeArray);
-}; */
-
-/* const miniData = [
-  { 
-    name:"Janeth", 
-    edad:27
-  },
-  {
-    name:"Fanny", 
-    edad: 28
-  }
-]; */
-
-/* const showAll = (data) =>{// Funcion que permite mostrar a todas las imagenes pokemon
-  const newImage = document.createElement("img");
- */
-  //myImage.src='http://www.serebii.net/pokemongo/pokemon/004.png';
-  //myImage.appendChild(myImage);  
- /*  return hijo;
-}
-document.getElementById('pokemons').appendChild(showAll(miniData))
-
-const pokeSelectedFunction = (pokeSelected) => {//funcion que permite seleccionar el pokemon deseado
-}
- */
-/* const showInformationOnePokemon = (objPokemon) =>{ //objPokemon: deberia ser un objeto2
-  const table = document.getElementById('pokeTable');
-  for (const i in objPokemon){
-      const fila = document.createElement('tr');
-      const columna = document.createElement('td');
-      const columna2 = document.createElement('td');
-
-      const titulo = document.createTextNode(i);
-      const value = document.createTextNode(objPokemon[i]);
-      columna.appendChild(titulo);
-      columna2.appendChild(value);
-      fila.appendChild(columna);
-      fila.appendChild(columna2);
-
-      table.appendChild(fila);
-  }
-
-} */
-
 
 
 
