@@ -1,9 +1,4 @@
 
-/* #pokeNum{
-    height: 500px;
-    width: 1000px;
-} */
-
 #pokemones{
     display: flex;
     flex-wrap: wrap;
