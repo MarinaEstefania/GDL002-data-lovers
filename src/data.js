@@ -1,19 +1,3 @@
-/* //*************************FILTROS 
-
-//*Filtro por TIPO
-//const filterType = (data, type) =>{ //ok
-  const arrayFiltered = data.filter ((tipo) => { //ok
-    const arraySelected = tipo.type[i]==type;
-
-    return arraySelected 
-    }) //ok
-    console.log(arrayFiltered) //ok
-  return arrayFiltered; //ok
-};
-const type = "Flying";//VARIABLE TIPO
-filterType(POKEMON.pokemon, type);
-  */
-
 //**********//Funcion que crea TABLA de info de un POKEMON */
 const showInformationOnePokemon = (objPokemon) => {
   const table = document.getElementById('pokeTable');
@@ -46,33 +30,13 @@ const proccessData = (data) => {
     newObj["id"] = item.id;
     newObj["urlImagen"] = item.img;
     newObj['numero'] = item.num;
-    //console.log(newObj);
     return newObj
   })
   return newArray;
 };
 
-//****** */ Funcion que Muestra en pantalla Img y nombre de TODOS los pokemon c/su div e informacion
-const showAll = (newData) => {
-  const container = document.getElementById('pokemones');
-  for (let i = 0; i < newData.length; i++) { //recorrido del arreglo
-    const contentDiv = document.createElement('div');
-    const contentLabel = document.createElement('label');
-    const contentImage = document.createElement('img');
 
-    const num = document.createTextNode(newData[i].numero + ' ')
-    const name = document.createTextNode(newData[i].nombre);
-    contentLabel.appendChild(num);
-    contentLabel.appendChild(name);
-    contentDiv.appendChild(contentLabel);
-    container.appendChild(contentDiv);
-
-    contentImage.src = newData[i].urlImagen;
-    contentDiv.appendChild(contentImage);
-    container.appendChild(contentDiv);
-    contentDiv.addEventListener("click", function (event) { showInformationOnePokemon(POKEMON.pokemon[i]) });
-  }
-}
+//sdggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
 const miniData = proccessData(POKEMON.pokemon);
 
 // FUNCION QUE ORDENA
@@ -92,6 +56,7 @@ const orderBy = (selectedSort) => {
       return 0;
     });
   } else if (selectedSort==4){
+    console.log(miniData)
     miniData.sort(function (prev, next){
       if (prev.nombre < next.nombre){
         return 1;
@@ -101,7 +66,7 @@ const orderBy = (selectedSort) => {
       }
       return 0;
     });
-  } 
+  }
 }
 
 //DOM PARA FUNCION QUE ORDENA
@@ -109,10 +74,45 @@ const orderBy = (selectedSort) => {
   const indexSort = document.getElementById ('dropDownSelecter');
   const selectedSort = indexSort[indexSort.selectedIndex].value;
   //}
-  document.getElementById('dropDownSelecter').addEventListener('click', orderBy );
+  document.getElementById('btnSort').addEventListener('click', orderBy);
 
 orderBy(selectedSort);
+/* //*************************FILTROS 
 
+//*Filtro por TIPO
+//const filterType = (data, type) =>{ //ok
+  const arrayFiltered = data.filter ((tipo) => { //ok
+    const arraySelected = tipo.type[i]==type;
+
+    return arraySelected 
+    }) //ok
+    console.log(arrayFiltered) //ok
+  return arrayFiltered; //ok
+};
+const type = "Flying";//VARIABLE TIPO
+filterType(POKEMON.pokemon, type);
+  */
+//****** */ Funcion que Muestra en pantalla Img y nombre de TODOS los pokemon c/su div e informacion
+const showAll = (newData) => {
+  const container = document.getElementById('pokemones');
+  for (let i = 0; i < newData.length; i++) { //recorrido del arreglo
+    const contentDiv = document.createElement('div');
+    const contentLabel = document.createElement('label');
+    const contentImage = document.createElement('img');
+
+    const num = document.createTextNode(newData[i].numero + ' ')
+    const name = document.createTextNode(newData[i].nombre);
+    contentLabel.appendChild(num);
+    contentLabel.appendChild(name);
+    contentDiv.appendChild(contentLabel);
+    container.appendChild(contentDiv);
+
+    contentImage.src = newData[i].urlImagen;
+    contentDiv.appendChild(contentImage);
+    container.appendChild(contentDiv);
+    contentDiv.addEventListener("click", function (event) { showInformationOnePokemon(miniData[i]) });
+  }
+}
 
 showAll(miniData);
 
