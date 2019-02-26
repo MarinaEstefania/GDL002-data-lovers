@@ -46,7 +46,7 @@ const miniData = proccessData(POKEMON.pokemon);
 
 // FUNCION QUE ORDENA
 const orderBy = (selectedSort, miniData) => {
-  console.log('hola fany');
+  console.log('hola');
   if (selectedSort == 1){
     return miniData.sort ();
   }else if(selectedSort == 2){
