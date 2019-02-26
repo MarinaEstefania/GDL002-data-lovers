@@ -71,12 +71,16 @@ const orderBy = (selectedSort) => {
 
 //DOM PARA FUNCION QUE ORDENA
 //const showSort = () => {
-  const indexSort = document.getElementById ('dropDownSelecter');
-  const selectedSort = indexSort[indexSort.selectedIndex].value;
   //}
-  document.getElementById('btnSort').addEventListener('click', orderBy);
+  document.getElementById('btnSort').addEventListener('click', ()=> {
+    const indexSort = document.getElementById ('dropDownSelecter');
+    const selectedSort = indexSort[indexSort.selectedIndex].value;
+    console.log(selectedSort);
+    orderBy(selectedSort);
 
-orderBy(selectedSort);
+
+  });
+  
 /* //*************************FILTROS 
 
 //*Filtro por TIPO
