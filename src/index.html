@@ -8,29 +8,34 @@
   <body>
   
     <h1>¡POKEGOAL!</h1>
-    <select name="pokemones">
-        <option value="water" selected>Ordenar por..</option>
-        <option value="grass" id="numinf">Numero inferior</option>
-        <option value="fire">Numero superior</option>
-        <option value="magical">A-Z</option>
-        <option value="magical">Z-A</option>
+    <!-- <select id="dropDownSelecter">
+        <option selected>Ordenar por..</option>
+        <option value="1">Numero Ascendente</option>
+        <option value="2">Numero Descendente</option>
+        <option value="3">A-Z</option>
+        <option value="4">Z-A</option>
+    </select> -->
+
+    <select id="dropDownSelecter">
+        <option selected>Ordenar por...</option>
+        <option value="1">Numero Ascendente</option>
+        <option value="2">Numero Descendente</option>
+        <option value="3">A-Z</option>
+        <option value="4">Z-A</option>
     </select>
-    <br>
-    <!-- <br>
-    <input type="submit">
-    <br> -->
-    <br>
-    <table id="pokeTable"></table> 
-    <!-- <button type ="reset" id=regresar>back</button> -->
+    <button id="btnSort">Ordenar</button>    
 
+    <br>
+    <br>
 
-    <section id="pokemones">
+    <section id = "infoPoke">
+        <table id="pokeTable"></table>
+        <button id="btnBack">Regresar</button>
+    </section>
+      
+    <section id="pokemones"> 
     </section>
   
-
-  
-    <!--input type="text" id="pokeNum" > </input>
-    <p id="num"></p!--> 
     <script src="./data/pokemon/pokemon.js"></script>
     <script src="data.js"></script>
     <script src="main.js"></script>
