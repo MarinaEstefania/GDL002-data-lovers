@@ -2,6 +2,7 @@
 #pokemones{
     display: flex;
     flex-wrap: wrap;
+
 }
 
 div {

@@ -1,82 +1,101 @@
 //*************************FILTROS */
 
 //*Filtro por TIPO
-const filterType = (data, type) =>{
-  const arrayFiltered = data.filter ((tipo) => {
-    return tipo.type[0||1||2]==type;
-    })
-    console.log(arrayFiltered)
+const filterType = (data, type) => {
+  const arrayFiltered = data.filter((tipo) => {
+    return tipo.type[0 || 1 || 2] == type;
+  })
+  //console.log(arrayFiltered)
   return arrayFiltered;
 };
 const type = "Flying";//VARIABLE TIPO
 filterType(POKEMON.pokemon, type);
 
 //**********//Funcion que crea TABLA de info de un POKEMON */
-const showInformationOnePokemon = (objPokemon) =>{ 
+const showInformationOnePokemon = (objPokemon) => {
   const table = document.getElementById('pokeTable');
-    for (const i in objPokemon){
+  table.innerHTML = ""; //Limpia mi tabla
+  for (const i in objPokemon) {
     //console.log(i);
-      //if ()
-        const fila = document.createElement('tr');
-        const columna = document.createElement('td');
-        const columna2 = document.createElement('td');
+    //if ()
+    const fila = document.createElement('tr');
+    const columna = document.createElement('td');
+    const columna2 = document.createElement('td');
 
-        const titulo = document.createTextNode(i);
-        const value = document.createTextNode(objPokemon[i]);
-        columna.appendChild(titulo);
-        columna2.appendChild(value);
-        fila.appendChild(columna);
-        fila.appendChild(columna2);
+    const titulo = document.createTextNode(i);
+    const value = document.createTextNode(objPokemon[i]);
+    columna.appendChild(titulo);
+    columna2.appendChild(value);
+    fila.appendChild(columna);
+    fila.appendChild(columna2);
 
-        table.appendChild(fila);
-    
+    table.appendChild(fila);
+
   }
-} 
+}
 
-
-
-
-//******** */funcion que crea objetos 'newArray' que contienen nombre, id y url
-const proccessData = (data) => { 
+const orderedData = (a, b) => {
+  return (b<a); //arreglo DESCENDENTE NUMEROS
+ };
+ //******** */funcion que crea objetos 'newArray' que contienen nombre, id y url
+ const proccessData = (data) => {
   const newArray = data.map((item)=> {
     const newObj = {};
     newObj["nombre"] = item.name;
     newObj["id"] = item.id;
     newObj["urlImagen"] = item.img;
     newObj['numero'] = item.num;
-    // console.log(newObj);
+    //console.log(newObj);
     return newObj
   })
-  return newArray;
-};
-
+  return newArray.sort(orderedData);
+ };
 //****** */ Funcion que Muestra en pantalla Img y nombre de TODOS los pokemon c/su div
-const showAll = (newData) => { 
+const showAll = (newData) => {
   const container = document.getElementById('pokemones');
-  for (let i = 0; i< newData.length; i++) { //recorrido del arreglo
+  for (let i = 0; i < newData.length; i++) { //recorrido del arreglo
     const contentDiv = document.createElement('div');
     const contentLabel = document.createElement('label');
     const contentImage = document.createElement('img');
-    
+
     const num = document.createTextNode(newData[i].numero + ' ')
     const name = document.createTextNode(newData[i].nombre);
     contentLabel.appendChild(num);
     contentLabel.appendChild(name);
     contentDiv.appendChild(contentLabel);
     container.appendChild(contentDiv);
-    
+
     contentImage.src = newData[i].urlImagen;
     contentDiv.appendChild(contentImage);
-    container.appendChild(contentDiv); 
-    contentDiv.addEventListener("click", function(event){showInformationOnePokemon(POKEMON.pokemon[i])});
-    }
-    
+    container.appendChild(contentDiv);
+    contentDiv.addEventListener("click", function (event) { showInformationOnePokemon(POKEMON.pokemon[i]) });
+
   }
-  
+
+}
+
 //showInformationOnePokemon(POKEMON.pokemon[5])
 const miniData = proccessData(POKEMON.pokemon);
 showAll(miniData);
 
+// FUNCION ORDENAR..
+/* const items =[{POKEMON}];
+//console.log(items);
+items.sort(function(a,b){
+  if(a.num > b.num){
+  console.log(items);
+    return 1;
+  }
+}); */
+
+const prub = POKEMON.pokemon;
+prub.sort(function (a, b) {
+  if (a.num > b.num) {
+    //console.log(prub);   
+    return -1;
+  }
+
+});
 
 
 // esta es una función de ejemplo
