@@ -42,19 +42,17 @@ const proccessData = (data) => {
   })
   return newArray;
 };
-
-
 const miniData = proccessData(POKEMON.pokemon);
 
 // FUNCION QUE ORDENA
-const orderBy = (selectedSort) => {
+const orderBy = (selectedSort, miniData) => {
   console.log('hola fany');
   if (selectedSort == 1){
-    miniData.sort ();
+    return miniData.sort ();
   }else if(selectedSort == 2){
-    miniData.reverse();
+    return miniData.reverse();
   }else if(selectedSort == 3){
-    miniData.sort(function (prev, next){
+    return miniData.sort(function (prev, next){
       if (prev.nombre > next.nombre){
         return 1;
       }
@@ -64,7 +62,7 @@ const orderBy = (selectedSort) => {
       return 0;
     });
   } else if (selectedSort==4){
-   miniData.sort(function (prev, next){
+   return miniData.sort(function (prev, next){
       if (prev.nombre < next.nombre){
         return 1;
       }
@@ -75,34 +73,19 @@ const orderBy = (selectedSort) => {
     });
   }
 }
-
 //DOM PARA FUNCION QUE ORDENA
   document.getElementById('btnSort').addEventListener('click', () => {
     const indexSort = document.getElementById ('dropDownSelecter');
     const selectedSort = indexSort[indexSort.selectedIndex].value;
-    console.log(selectedSort);
-    orderBy(selectedSort);
+    const arraySort = orderBy(selectedSort, miniData);
+    showAll(arraySort);
   });
   
 
-/* //*************************FILTROS 
-
-//*Filtro por TIPO
-//const filterType = (data, type) =>{ //ok
-  const arrayFiltered = data.filter ((tipo) => { //ok
-    const arraySelected = tipo.type[i]==type;
-
-    return arraySelected 
-    }) //ok
-    console.log(arrayFiltered) //ok
-  return arrayFiltered; //ok
-};
-const type = "Flying";//VARIABLE TIPO
-filterType(POKEMON.pokemon, type);
-  */
 //****** */ Funcion que Muestra en pantalla Img y nombre de TODOS los pokemon c/su div e informacion
 const showAll = (newData) => {
   const container = document.getElementById('pokemones');
+  container.innerHTML='';
   for (let i = 0; i < newData.length; i++) { //recorrido del arreglo
     const contentDiv = document.createElement('div');
     const contentLabel = document.createElement('label');
@@ -124,7 +107,22 @@ const showAll = (newData) => {
 
 showAll(miniData);
 
+/* //*************************FILTROS 
 
+//*Filtro por TIPO
+//const filterType = (data, type) =>{ //ok
+  const arrayFiltered = data.filter ((tipo) => { //ok
+    const arraySelected = tipo.type[i]==type;
+
+    return arraySelected 
+    }) //ok
+    console.log(arrayFiltered) //ok
+  return arrayFiltered; //ok
+};
+const type = "Flying";//VARIABLE TIPO
+filterType(POKEMON.pokemon, type);
+  */
+ 
 // esta es una función de ejemplo
 // puedes ver como agregamos la función a nuestro objeto global window
 /* AQUI SE ESCRIBIRAN LAS FUNCIONES
