@@ -30,17 +30,25 @@ const proccessData = (data) => {
     newObj["id"] = item.id;
     newObj["urlImagen"] = item.img;
     newObj['numero'] = item.num;
+    newObj["Huevos"] = item.egg;
+    newObj["Probabolodad de que aparezca"] = item.spown_chace;
+    newObj["Promedio de probabilidad"] = item.avg_spawns;
+    newObj["Tiempo que tarda en aparecer"] = item.spawn_time;
+    newObj["Multiplicadores"] = item.multipliers;
+    newObj["Debilidad"] = item.weaknesses;
+    newObj["Previa Evolución"] = item.prev_evolution;
+    newObj["Siguiente Evolución"] = item.next_evolution;
     return newObj
   })
   return newArray;
 };
 
 
-//sdggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
 const miniData = proccessData(POKEMON.pokemon);
 
 // FUNCION QUE ORDENA
 const orderBy = (selectedSort) => {
+  console.log('hola fany');
   if (selectedSort == 1){
     miniData.sort ();
   }else if(selectedSort == 2){
@@ -56,8 +64,7 @@ const orderBy = (selectedSort) => {
       return 0;
     });
   } else if (selectedSort==4){
-    console.log(miniData)
-    miniData.sort(function (prev, next){
+   miniData.sort(function (prev, next){
       if (prev.nombre < next.nombre){
         return 1;
       }
@@ -70,13 +77,14 @@ const orderBy = (selectedSort) => {
 }
 
 //DOM PARA FUNCION QUE ORDENA
-//const showSort = () => {
-  const indexSort = document.getElementById ('dropDownSelecter');
-  const selectedSort = indexSort[indexSort.selectedIndex].value;
-  //}
-  document.getElementById('btnSort').addEventListener('click', orderBy);
+  document.getElementById('btnSort').addEventListener('click', () => {
+    const indexSort = document.getElementById ('dropDownSelecter');
+    const selectedSort = indexSort[indexSort.selectedIndex].value;
+    console.log(selectedSort);
+    orderBy(selectedSort);
+  });
+  
 
-orderBy(selectedSort);
 /* //*************************FILTROS 
 
 //*Filtro por TIPO
