@@ -3,8 +3,6 @@ const showInformationOnePokemon = (objPokemon) => {
   const table = document.getElementById('pokeTable');
   table.innerHTML = '';
   for (const i in objPokemon) {
-    //console.log(i);
-    //if ()
     const fila = document.createElement('tr');
     const columna = document.createElement('td');
     const columna2 = document.createElement('td');
@@ -29,6 +27,7 @@ const proccessData = (data) => {
     newObj["nombre"] = item.name;
     newObj["id"] = item.id;
     newObj["urlImagen"] = item.img;
+    newObj["Tipo"] = item.type;
     newObj['numero'] = item.num;
     newObj["Huevos"] = item.egg;
     newObj["Probabolodad de que aparezca"] = item.spown_chace;
@@ -46,12 +45,27 @@ const miniData = proccessData(POKEMON.pokemon);
 
 // FUNCION QUE ORDENA
 const orderBy = (selectedSort, miniData) => {
-  console.log('hola');
   if (selectedSort == 1){
-    return miniData.sort ();
+    return miniData.sort(function (prev, next){
+      if (prev.id > next.id){
+        return 1;
+      }
+      if (prev.id < next.id){
+        return -1;
+      }
+      return 0;
+    });
   }else if(selectedSort == 2){
-    return miniData.reverse();
-  }else if(selectedSort == 3){
+    return miniData.sort(function (prev, next){
+       if (prev.id < next.id){
+         return 1;
+       }
+       if (prev.id > next.id){
+         return -1;
+       }
+       return 0;
+     });
+   }else if(selectedSort == 3){
     return miniData.sort(function (prev, next){
       if (prev.nombre > next.nombre){
         return 1;
@@ -81,6 +95,25 @@ const orderBy = (selectedSort, miniData) => {
     showAll(arraySort);
   });
   
+ //*************************FILTROS 
+//Filtro por TIPO
+const filterType = (data, type) =>{ //ok
+  const arrayFiltered = data.filter ((tipo) => { //ok
+    const arraySelected = tipo.type.forEach(function(position){
+      console.log(position);
+      if (position == type){
+        //console.log('hola');
+        //return tipo.type
+      }
+      //position==type;
+    });
+    return arraySelected 
+    }) //ok
+    console.log(arrayFiltered) //ok
+  return arrayFiltered; //ok
+};
+const type = "Dragon";//VARIABLE TIPO
+filterType(POKEMON.pokemon, type);
 
 //****** */ Funcion que Muestra en pantalla Img y nombre de TODOS los pokemon c/su div e informacion
 const showAll = (newData) => {
@@ -107,21 +140,7 @@ const showAll = (newData) => {
 
 showAll(miniData);
 
-/* //*************************FILTROS 
 
-//*Filtro por TIPO
-//const filterType = (data, type) =>{ //ok
-  const arrayFiltered = data.filter ((tipo) => { //ok
-    const arraySelected = tipo.type[i]==type;
-
-    return arraySelected 
-    }) //ok
-    console.log(arrayFiltered) //ok
-  return arrayFiltered; //ok
-};
-const type = "Flying";//VARIABLE TIPO
-filterType(POKEMON.pokemon, type);
-  */
  
 // esta es una función de ejemplo
 // puedes ver como agregamos la función a nuestro objeto global window
