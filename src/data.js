@@ -77,27 +77,14 @@ const orderBy = (selectedSort) => {
 }
 
 //DOM PARA FUNCION QUE ORDENA
-<<<<<<< HEAD
-//const showSort = () => {
-  //}
-  document.getElementById('btnSort').addEventListener('click', ()=> {
-=======
   document.getElementById('btnSort').addEventListener('click', () => {
->>>>>>> 120eede130bc0e8ff23c0bc4c1d6a59fd96a598c
     const indexSort = document.getElementById ('dropDownSelecter');
     const selectedSort = indexSort[indexSort.selectedIndex].value;
     console.log(selectedSort);
     orderBy(selectedSort);
-<<<<<<< HEAD
-
-
-  });
-  
-=======
   });
   
 
->>>>>>> 120eede130bc0e8ff23c0bc4c1d6a59fd96a598c
 /* //*************************FILTROS 
 
 //*Filtro por TIPO
