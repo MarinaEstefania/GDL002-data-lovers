@@ -1,4 +1,5 @@
-require('../src/data.js');
+
+/* require('../src/data.js');
 const pokemon = require ('../src/data/pokemon/pokemon.js');
 
 //cuando se vea la palabra describe por convencion significa que se trata de un test
@@ -18,3 +19,4 @@ describe ('Filter', ()=> {
 }
   }); 
 });
+ */
