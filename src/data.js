@@ -6,6 +6,9 @@ const showInformationOnePokemon = (objPokemon) => {
     if (i == 'urlImagen'){
       continue;
     } 
+    if (i == 'id'){
+      continue;
+    } 
     const fila = document.createElement('tr');
     const columna = document.createElement('td');
     const columna2 = document.createElement('td');
@@ -27,11 +30,15 @@ const showInformationOnePokemon = (objPokemon) => {
 const proccessData = (data) => {
   const newArray = data.map((item) => {
     const newObj = {};
+    newObj['numero'] = item.num;
     newObj["nombre"] = item.name;
     newObj["id"] = item.id;
     newObj["urlImagen"] = item.img;
     newObj["Tipo"] = item.type;
-    newObj['numero'] = item.num;
+    newObj['Altura'] = item.height;
+    newObj['Peso'] = item.weight;
+    newObj['Tipo de Caramelo'] = item.candy;
+    newObj['Caramelos Necesarios'] = item.candy_count;
     newObj["Huevos"] = item.egg;
     newObj["Probabolodad de que aparezca"] = item.spawn_chance;
     newObj["Promedio de probabilidad"] = item.avg_spawns;
