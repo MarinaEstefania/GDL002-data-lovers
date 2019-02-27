@@ -24,7 +24,7 @@ const showInformationOnePokemon = (objPokemon) => {
     table.appendChild(fila);
     
   }
-}
+};
 
 // Funcion que crea objetos 'newArray' que contienen nombre, id y url
 const proccessData = (data) => {
@@ -48,8 +48,8 @@ const proccessData = (data) => {
     newObj["Previa Evolución"] = item.prev_evolution;
     newObj["Siguiente Evolución"] = item.next_evolution;
     //console.log(newObj);
-    return newObj
-  })
+    return newObj;
+  });
   return newArray;
 };
 const miniData = proccessData(POKEMON.pokemon);
@@ -97,7 +97,7 @@ const orderBy = (selectedSort, miniData) => {
       return 0;
     });
   }
-}
+};
 //DOM PARA FUNCION QUE ORDENA
 document.getElementById('btnSort').addEventListener('click', () => {
   const indexSort = document.getElementById ('dropDownSelecter');
@@ -114,8 +114,8 @@ const filterType = (data, type) =>{
         return data[index].Tipo[i] === type;
       }
     }
-  })
-  return arrayFiltered
+  });
+  return arrayFiltered;
 };
 
 //DOM PARA FUNCION QUE FILTRA
@@ -126,26 +126,25 @@ const filterType = (data, type) =>{
   showAll(arrayFiltered);
 }); 
 
-//Funcion que lanza Estadisticas
-/* const filterType = (data, type) =>{ //ok
-  const arrayFiltered = data.filter ((tipo) => { //ok
-    const arraySelected = tipo.type.forEach(function(position){
-      console.log(position);
-      if (position == type){
-        //console.log('hola');
-        //return tipo.type
-      }
-      //position==type;
-    });
-    return arraySelected 
-    }) //ok
-    console.log(arrayFiltered) //ok
-  return arrayFiltered; //ok
+//Funcion que lanza la Media del numero de Caramelos
+const computeStats = (data) =>{ 
+  let totalCandyCount = 0;
+  let numPokeCandyCount = 0;
+  for (const i in data){
+    if (data[i].candy_count !== undefined){
+      totalCandyCount += data[i].candy_count;
+      numPokeCandyCount += 1;
+    }
+  }
+  const mediaCandyCount = (totalCandyCount/numPokeCandyCount);
+  return (mediaCandyCount);
 };
-const type = "Flying";//VARIABLE TIPO
-filterType(POKEMON.pokemon, type);
- */
-
+//DOM para funcion de MEDIA NUM CARAMELOS
+const btnCaramel = computeStats(POKEMON.pokemon);
+const muestraCaramelo = () => {
+  document.getElementById('showCaramel').innerHTML = btnCaramel;
+};
+document.getElementById('avgCandy').addEventListener('click', muestraCaramelo);
 //Funcion que Muestra en pantalla Img y nombre de TODOS los pokemon c/su div e informacion
   const showAll = (newData) => {
     const container = document.getElementById('pokemones');
@@ -155,7 +154,7 @@ filterType(POKEMON.pokemon, type);
       const contentLabel = document.createElement('label');
       const contentImage = document.createElement('img');
       
-      const num = document.createTextNode(newData[i].numero + ' ')
+      const num = document.createTextNode(newData[i].numero + ' ');
       const name = document.createTextNode(newData[i].nombre);
       contentLabel.appendChild(num);
       contentLabel.appendChild(name);
@@ -165,35 +164,9 @@ filterType(POKEMON.pokemon, type);
       contentImage.src = newData[i].urlImagen;
       contentDiv.appendChild(contentImage);
       container.appendChild(contentDiv);
-      contentDiv.addEventListener("click", function (event) { showInformationOnePokemon(miniData[i]) });
+      contentDiv.addEventListener("click", function () { 
+        showInformationOnePokemon(miniData[i]);
+      });
     }
-  }
-  
-  showAll(miniData);
- 
-  
-  
-  // esta es una función de ejemplo
-  // puedes ver como agregamos la función a nuestro objeto global window
-  /* AQUI SE ESCRIBIRAN LAS FUNCIONES
-  
-  filterData(data, condition): esta función filter o filtrar recibiría la data, y nos retornaría aquellos datos que sí cumplan con la condición.
-  
-  sortData(data, sortBy, sortOrder): esta función sort u ordenar recibe tres parámetros. El primer parámetro, data, nos entrega los datos. El segundo parámetro, sortBy, nos dice con respecto a cuál de los campos de la data se quiere ordenar. El tercer parámetro, sortOrder, indica si se quiere ordenar de manera ascendente o descendente.
-  
-  computeStats(data): la función compute o calcular, nos permitirá hacer cálculos estadísticos básicos para ser mostrados de acuerdo a la data proporcionada.
-  
-  
-  Estas funciones deben ser puras e independientes del DOM. Estas funciones serán después usadas desde el archivo src/main.js, al cargar la página, y cada vez que el usuario interactúe (click, filtrado, ordenado, ...).
-  
-  const n=5;
-  const example = (n) => {
-    const m=n*n;
-    return m;
   };
-  console.log(example(n));
-  
-  window.example = example;
-  
-  */
-  
+  showAll(miniData);
