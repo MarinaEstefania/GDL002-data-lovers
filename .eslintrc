@@ -7,8 +7,12 @@
   },
   "extends": "eslint:recommended",
   "globals": {
-    "cipher": false,
-    "POKEMON": false
+    "orderBy": false,
+    "POKEMON": false,
+    "miniData": false,
+    "filterType": false,
+    "computeStats": false,
+    "processData": false
   },
   "rules": {
     "no-console": 0,
