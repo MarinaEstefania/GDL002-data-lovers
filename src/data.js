@@ -1,33 +1,6 @@
-// Funcion que crea TABLA de info de un POKEMON 
-const showInformationOnePokemon = (objPokemon) => {
-  const table = document.getElementById('pokeTable');
-  table.innerHTML = '';
-  for (const i in objPokemon) {
-    if (i == 'urlImagen'){
-      continue;
-    } 
-    if (i == 'id'){
-      continue;
-    } 
-    const fila = document.createElement('tr');
-    const columna = document.createElement('td');
-    const columna2 = document.createElement('td');
-    
-    const titulo = document.createTextNode(i);
-    const value = document.createTextNode(objPokemon[i]);
-    
-    columna.appendChild(titulo);
-    columna2.appendChild(value);
-    fila.appendChild(columna);
-    fila.appendChild(columna2);
-    
-    table.appendChild(fila);
-    
-  }
-};
-
+window.pokegoal = {
 // Funcion que crea objetos 'newArray' que contienen nombre, id y url
-const proccessData = (data) => {
+proccessData:  (data) => {
   const newArray = data.map((item) => {
     const newObj = {};
     newObj['numero'] = item.num;
@@ -38,24 +11,34 @@ const proccessData = (data) => {
     newObj['Altura'] = item.height;
     newObj['Peso'] = item.weight;
     newObj['Tipo de Caramelo'] = item.candy;
-    newObj['Caramelos Necesarios'] = item.candy_count;
+    newObj['Caramelos Necesarios'] = item.candy_count ? item.candy_count : "No evoluciona con Caramelos";
     newObj["Huevos"] = item.egg;
     newObj["Probabolodad de que aparezca"] = item.spawn_chance;
     newObj["Promedio de probabilidad"] = item.avg_spawns;
     newObj["Tiempo que tarda en aparecer"] = item.spawn_time;
-    newObj["Multiplicadores"] = item.multipliers;
+    newObj["Multiplicadores"] = item.multipliers ? item.multipliers : "No tiene";
     newObj["Debilidad"] = item.weaknesses;
-    newObj["Previa Evolución"] = item.prev_evolution;
-    newObj["Siguiente Evolución"] = item.next_evolution;
+    newObj["Previa Evolución"] = item.prev_evolution ? item.prev_evolution.map(prevEvo => prevEvo.name).join(",") : "No tiene";
+    newObj["Siguiente Evolución"] = item.next_evolution ? item.next_evolution.map(nextEvo => nextEvo.name).join(",") : "No tiene";
     //console.log(newObj);
     return newObj;
   });
   return newArray;
-};
-const miniData = proccessData(POKEMON.pokemon);
+},
+//FUNCION QUE FILTRA POR TIPO DE POKEMON
+filterType:  (data, type) =>{ 
+  const arrayFiltered = data.filter((Tipo, index) => { 
+    for (const i in data[index].Tipo){
+      if(data[index].Tipo[i] === type) {
+        return data[index].Tipo[i] === type;
+      }
+    }
+  });
+  return arrayFiltered;
+},
 
 // FUNCION QUE ORDENA
-const orderBy = (selectedSort, miniData) => {
+orderBy:  (selectedSort, miniData) => {
   if (selectedSort == 1){
     return miniData.sort(function (prev, next){
       if (prev.id > next.id){
@@ -97,37 +80,10 @@ const orderBy = (selectedSort, miniData) => {
       return 0;
     });
   }
-};
-//DOM PARA FUNCION QUE ORDENA
-document.getElementById('btnSort').addEventListener('click', () => {
-  const indexSort = document.getElementById ('dropDownSelecter');
-  const selectedSort = indexSort[indexSort.selectedIndex].value;
-  const arraySort = orderBy(selectedSort, miniData);
-  showAll(arraySort);
-});
-
-//FUNCION QUE FILTRA POR TIPO DE POKEMON
-const filterType = (data, type) =>{ 
-  const arrayFiltered = data.filter((Tipo, index) => { 
-    for (const i in data[index].Tipo){
-      if(data[index].Tipo[i] === type) {
-        return data[index].Tipo[i] === type;
-      }
-    }
-  });
-  return arrayFiltered;
-};
-
-//DOM PARA FUNCION QUE FILTRA
- document.getElementById('btnFilter').addEventListener('click', () => {
-  const indexFilter = document.getElementById ('dropDownSelecterFilter');
-  const selectedFilter = indexFilter[indexFilter.selectedIndex].value;
-  const arrayFiltered = filterType(miniData, selectedFilter);
-  showAll(arrayFiltered);
-}); 
+},
 
 //Funcion que lanza la Media del numero de Caramelos
-const computeStats = (data) =>{ 
+computeStats: (data) =>{ 
   let totalCandyCount = 0;
   let numPokeCandyCount = 0;
   for (const i in data){
@@ -138,35 +94,5 @@ const computeStats = (data) =>{
   }
   const mediaCandyCount = (totalCandyCount/numPokeCandyCount);
   return (mediaCandyCount);
+}
 };
-//DOM para funcion de MEDIA NUM CARAMELOS
-const btnCaramel = computeStats(POKEMON.pokemon);
-const muestraCaramelo = () => {
-  document.getElementById('showCaramel').innerHTML = btnCaramel;
-};
-document.getElementById('avgCandy').addEventListener('click', muestraCaramelo);
-//Funcion que Muestra en pantalla Img y nombre de TODOS los pokemon c/su div e informacion
-  const showAll = (newData) => {
-    const container = document.getElementById('pokemones');
-    container.innerHTML='';
-    for (let i = 0; i < newData.length; i++) { //recorrido del arreglo
-      const contentDiv = document.createElement('div');
-      const contentLabel = document.createElement('label');
-      const contentImage = document.createElement('img');
-      
-      const num = document.createTextNode(newData[i].numero + ' ');
-      const name = document.createTextNode(newData[i].nombre);
-      contentLabel.appendChild(num);
-      contentLabel.appendChild(name);
-      contentDiv.appendChild(contentLabel);
-      container.appendChild(contentDiv);
-      
-      contentImage.src = newData[i].urlImagen;
-      contentDiv.appendChild(contentImage);
-      container.appendChild(contentDiv);
-      contentDiv.addEventListener("click", function () { 
-        showInformationOnePokemon(miniData[i]);
-      });
-    }
-  };
-  showAll(miniData);
