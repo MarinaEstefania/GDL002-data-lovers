@@ -1,5 +1,5 @@
 body {
-    background: url(../src/img/dark-bg-pokemon.png);
+    background: url(../src/img/fondo-1920-420248.jpg);
     background-size: contain; 
     background-attachment: fixed;
     color: aliceblue;
@@ -7,19 +7,16 @@ body {
 
    }
 
+
+
 #pokemones{
     display: flex;
     flex-wrap: wrap;
 }
 
-div {
-    height: 150px;
-    width: 150px;
-    border: 1px solid; 
-    text-align: center;
-}
 
-label {
+
+section#pokemones div label {
     display: block;
 }
 
@@ -27,6 +24,18 @@ section#pokemones div{
     border: transparent;
     padding: .5%;
     color: white;
+    height: 150px;
+    width: 150px;
+    text-align: center;
 }
 
+.invisible {
+    display: none;
+    visibility: hidden;
+   }
+
+.visible {
+    visibility: visible;
+    position: static;
+   }
 
