@@ -13,14 +13,13 @@ proccessData:  (data) => {
     newObj['Tipo de Caramelo'] = item.candy;
     newObj['Caramelos Necesarios'] = item.candy_count ? item.candy_count : "No evoluciona con Caramelos";
     newObj["Huevos"] = item.egg;
-    newObj["Probabolodad de que aparezca"] = item.spawn_chance;
+    newObj["Probabilidad de que aparezca"] = item.spawn_chance;
     newObj["Promedio de probabilidad"] = item.avg_spawns;
     newObj["Tiempo que tarda en aparecer"] = item.spawn_time;
     newObj["Multiplicadores"] = item.multipliers ? item.multipliers : "No tiene";
     newObj["Debilidad"] = item.weaknesses;
     newObj["Previa Evolución"] = item.prev_evolution ? item.prev_evolution.map(prevEvo => prevEvo.name).join(",") : "No tiene";
     newObj["Siguiente Evolución"] = item.next_evolution ? item.next_evolution.map(nextEvo => nextEvo.name).join(",") : "No tiene";
-    //console.log(newObj);
     return newObj;
   });
   return newArray;
@@ -39,6 +38,7 @@ filterType:  (data, type) =>{
 
 // FUNCION QUE ORDENA
 orderBy:  (selectedSort, miniData) => {
+  
   if (selectedSort == 1){
     return miniData.sort(function (prev, next){
       if (prev.id > next.id){
@@ -79,7 +79,7 @@ orderBy:  (selectedSort, miniData) => {
       }
       return 0;
     });
-  }
+  } 
 },
 
 //Funcion que lanza la Media del numero de Caramelos
