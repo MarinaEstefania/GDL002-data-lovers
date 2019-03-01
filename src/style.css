@@ -1,7 +1,11 @@
+/* body{
+    img src: url('dark-bg-pokemon.png');
+} */
 
 #pokemones{
     display: flex;
     flex-wrap: wrap;
+    align-content: center;
 
 }
 
@@ -10,12 +14,18 @@ div {
     width: 150px;
     border: 1px solid; 
     text-align: center;
+
 }
 
 label {
     display: block;
 }
 
-
+/* .container{
+    width: 80%;
+    margin: 0 auto;
+    background-color: yellow;
+}
+ */
 
 
