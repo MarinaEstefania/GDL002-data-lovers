@@ -59,7 +59,7 @@ const showAll = (newData) => {
       const contentLabel = document.createElement('label');
       const contentImage = document.createElement('img');
       
-      const num = document.createTextNode(newData[i].numero + ' ');
+      const num = document.createTextNode(newData[i].numero + '  ');
       const name = document.createTextNode(newData[i].nombre);
       contentLabel.appendChild(num);
       contentLabel.appendChild(name);
@@ -82,14 +82,12 @@ const showAll = (newData) => {
 const rewind = () => {
     document.getElementById('infoPoke').style.display = 'block';
     document.getElementById('principal').style.display = 'none';
-    document.getElementById('candySection').style.display = 'none';
     
 };                                                            
 const home = () => {
     document.getElementById('infoPoke').style.display = 'none';
     document.getElementById('principal').style.display = 'block';
-    document.getElementById('candySection').style.display = 'none';
 };
 
 home();
-document.getElementById('btnBack').addEventListener('click', home);    
+document.getElementById('btnBack').addEventListener('click', home);   
