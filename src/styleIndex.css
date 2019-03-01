@@ -1,0 +1,34 @@
+body {
+    background: url(../src/img/fondo-1920-420248.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: aliceblue;
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+
+   }
+   #showCaramel{
+    border: transparent;
+}
+/* #pokemones{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div {
+    height: 150px;
+    width: 150px;
+    border: 1px solid; 
+    text-align: center;
+}
+
+label {
+    display: block;
+}
+
+section#pokemones div{
+    border: transparent;
+    padding: .5%;
+    color: white;
+}
+ */
+

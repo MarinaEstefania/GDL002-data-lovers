@@ -4,54 +4,19 @@
     <meta charset="utf-8">
     <title>¡POKEGOAL!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styleIndex.css" />
+    <link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou" rel="stylesheet">
   </head>
   <body >
-  
-    <h1></h1>
+    <a href="indexMain.html"> ENTRAR</a>
+    
+    <button id="avgCandy">Caramelos Promedio</button>
+    <p>La media de caramelos necesarios de los Pokemon es:</p>
+    <div id="showCaramel"> </div>
 
-    <section id = "infoPoke">
-        <table id="pokeTable"></table>
-        <button id="btnBack">Regresar</button>
-    </section>
-
-    <section id = "principal">
-      <select id="dropDownSelecter" >
-          <option value="0" selected>Ordenar por...</option>
-          <option value="1">Numero Ascendente</option>
-          <option value="2">Numero Descendente</option>
-          <option value="3">A-Z</option>
-          <option value="4">Z-A</option>
-      </select>    
-
-      <select id="dropDownSelecterFilter">
-          <option value="0" selected>Filtrar por Tipo...</option>
-          <option value="Fire">Fuego</option>
-          <option value="Flying">Volador</option>
-          <option value="Dragon">Dragon</option>
-          <option value="Grass">Planta</option>
-          <option value="Poison">Veneno</option>
-          <option value="Water">Agua</option>
-          <option value="Ice">Hielo</option>
-          <option value="Bug">Insecto</option>
-          <option value="Ghost">Fantasma</option>
-          <option value="Normal">Normal</option>
-          <option value="Electric">Electrico</option>
-          <option value="Ground">Tierra</option>
-          <option value="Fighting">Pelea</option>
-          <option value="Psychic">Psiquico</option>
-          <option value="Rock">Roca</option>
-      </select>
-
-      <button id="avgCandy">Caramelos Promedio</button>
-      <div id="showCaramel">La media de caramelos necesarios de los Pokemon es: </div>
-      <br>
-      <br>
-      <section id="pokemones"> 
-      </section>
-    </section>
     <script src="./data/pokemon/pokemon.js"></script>
     <script src="data.js"></script>
     <script src="main.js"></script>
-  </body>
-</html>
+      </body>
+    </html>
+    

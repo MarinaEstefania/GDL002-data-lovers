@@ -1,0 +1,32 @@
+body {
+    background: url(../src/img/dark-bg-pokemon.png);
+    background-size: contain; 
+    background-attachment: fixed;
+    color: aliceblue;
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+
+   }
+
+#pokemones{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div {
+    height: 150px;
+    width: 150px;
+    border: 1px solid; 
+    text-align: center;
+}
+
+label {
+    display: block;
+}
+
+section#pokemones div{
+    border: transparent;
+    padding: .5%;
+    color: white;
+}
+
+

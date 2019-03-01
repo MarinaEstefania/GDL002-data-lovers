@@ -82,12 +82,14 @@ const showAll = (newData) => {
 const rewind = () => {
     document.getElementById('infoPoke').style.display = 'block';
     document.getElementById('principal').style.display = 'none';
+    document.getElementById('candySection').style.display = 'none';
     
 };                                                            
 const home = () => {
     document.getElementById('infoPoke').style.display = 'none';
     document.getElementById('principal').style.display = 'block';
+    document.getElementById('candySection').style.display = 'none';
 };
 
 home();
-document.getElementById('btnBack').addEventListener('click', home);   
+document.getElementById('btnBack').addEventListener('click', home);    
