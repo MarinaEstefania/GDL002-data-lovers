@@ -50,6 +50,7 @@ const muestraCaramelo = () => {
 };
 document.getElementById('avgCandy').addEventListener('click', muestraCaramelo);
 
+
 //Funcion que Muestra en pantalla Img y nombre de TODOS los pokemon c/su div e informacion
 const showAll = (newData) => {
     const container = document.getElementById('pokemones');
@@ -59,7 +60,7 @@ const showAll = (newData) => {
       const contentLabel = document.createElement('label');
       const contentImage = document.createElement('img');
       
-      const num = document.createTextNode(newData[i].numero + ' ');
+      const num = document.createTextNode(newData[i].numero + '  ');
       const name = document.createTextNode(newData[i].nombre);
       contentLabel.appendChild(num);
       contentLabel.appendChild(name);
@@ -75,19 +76,30 @@ const showAll = (newData) => {
       });
     }
   };
-  showAll(miniData);
+ 
  
 //////////////////////////////////////////////////////HTML y CSS
+const entrar = () => {
+  document.body.style.backgroundColor = "#f3f3f3";
+  document.body.style.backgroundImage = "url('../src/img/dark-bg-pokemon.png')";
+  document.getElementById('container').className = "visible";
+  document.getElementById('candySection').className = "invisible";
+
+  showAll(miniData);
+};
+document.getElementById('btnPlay').addEventListener('click', entrar); 
 
 const rewind = () => {
-    document.getElementById('infoPoke').style.display = 'block';
-    document.getElementById('principal').style.display = 'none';
-    
-};                                                            
+  document.getElementById('candySection').className = "invisible";
+  document.getElementById('container').className = "invisible";
+  document.getElementById('infoPoke').className = "visible";
+};  
+
 const home = () => {
-    document.getElementById('infoPoke').style.display = 'none';
-    document.getElementById('principal').style.display = 'block';
+  document.getElementById('candySection').className = "invisible";
+  document.getElementById('container').className = "visible";
+  document.getElementById('infoPoke').className = "invisible";
 };
 
-home();
-document.getElementById('btnBack').addEventListener('click', home);   
+
+document.getElementById('btnBack').addEventListener('click', home);
