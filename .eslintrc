@@ -7,10 +7,15 @@
   },
   "extends": "eslint:recommended",
   "globals": {
-    "cipher": false
+    "orderBy": false,
+    "POKEMON": false,
+    "miniData": false,
+    "filterType": false,
+    "computeStats": false,
+    "processData": false
   },
   "rules": {
     "no-console": 0,
-    "semi": 2,
+    "semi": 2
   }
 }
