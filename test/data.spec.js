@@ -5,7 +5,6 @@ const miniData = window.pokegoal.proccessData(POKEMON.pokemon);
 //cuando se vea la palabra describe por convencion significa que se trata de un test
 describe('processData', () => { //describe es una funcion y la palabra 'Pokemon' es lo que se mostrara en pantalla
   it('should be a function', () => { //it es una funcion y la frase 'should be an object' es lo que se mostrara en pantalla
-  //console.log(typeof(window.pokegoal.proccessData));
     expect(typeof window.pokegoal.proccessData).toBe('function');
   });
 });
@@ -39,40 +38,3 @@ describe('computeStats', () => {
     expect(window.pokegoal.computeStats(POKEMON.pokemon)).toBe(57.3);
   });
 });
-
-
-
-
-
-
-
-/* //el describe de a continuacion no esta terminado
-describe ('Filter', ()=> {
-  it ('should filter my Pokemon by name' () => {
-    expect (filterPokemon(pokemon, 'nombre')).toBe (
-  }
-}
-  }); 
-}); */
- 
-/* require('../src/data.js');
-const pokemon = require ('../src/data/pokemon/pokemon.js');
-
-//cuando se vea la palabra describe por convencion significa que se trata de un test
-describe('Pokemon', () => { //describe es una funcion y la palabra 'Pokemon' es lo que se mostrara en pantalla
-  it('should be an object', () => { //it es una funcion y la frase 'should be an object' es lo que se mostrara en pantalla
-    expect(typeof pokemon).toBe('object');
-  });
-});
-
-
-
-//el describe de a continuacion no esta terminado
-describe ('Filter', ()=> {
-  it ('should filter my Pokemon by name' () => {
-    expect (filterPokemon(pokemon, 'nombre')).toBe (
-  }
-}
-  }); 
-});
-*/

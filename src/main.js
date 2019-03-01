@@ -24,11 +24,11 @@ const showInformationOnePokemon = (objPokemon) => {
       fila.appendChild(columna2);
       
       table.appendChild(fila);
-      
     }
+
   };
 //DOM PARA FUNCION QUE ORDENA
-document.getElementById('btnSort').addEventListener('click', () => {
+document.getElementById('dropDownSelecter').addEventListener('click', () => {
     const indexSort = document.getElementById ('dropDownSelecter');
     const selectedSort = indexSort[indexSort.selectedIndex].value;
     const arraySort = window.pokegoal.orderBy(selectedSort, miniData);
@@ -36,7 +36,7 @@ document.getElementById('btnSort').addEventListener('click', () => {
   });
 
   //DOM PARA FUNCION QUE FILTRA
- document.getElementById('btnFilter').addEventListener('click', () => {
+ document.getElementById('dropDownSelecterFilter').addEventListener('click', () => {
     const indexFilter = document.getElementById ('dropDownSelecterFilter');
     const selectedFilter = indexFilter[indexFilter.selectedIndex].value;
     const arrayFiltered = window.pokegoal.filterType(miniData, selectedFilter);
@@ -71,15 +71,23 @@ const showAll = (newData) => {
       container.appendChild(contentDiv);
       contentDiv.addEventListener("click", function () { 
         showInformationOnePokemon(newData[i]);
+      contentDiv.addEventListener("click", rewind());
       });
     }
   };
   showAll(miniData);
+ 
+//////////////////////////////////////////////////////HTML y CSS
 
-/////////////////*HTML y CSS
-/* 
-function ocultar (){
-    document.getElementById('infoPoke').style.display='none';
-}
+const rewind = () => {
+    document.getElementById('infoPoke').style.display = 'block';
+    document.getElementById('principal').style.display = 'none';
+    
+};                                                            
+const home = () => {
+    document.getElementById('infoPoke').style.display = 'none';
+    document.getElementById('principal').style.display = 'block';
+};
 
-document.getElementById('btnBack').addEventListener('click', ocultar);   */
+home();
+document.getElementById('btnBack').addEventListener('click', home);   
