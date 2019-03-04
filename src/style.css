@@ -1,13 +1,10 @@
 body {
-    background: url(../src/img/fondo-1920-420248.jpg);
+   
     background-size: contain; 
     background-attachment: fixed;
     color: aliceblue;
     font-family: 'ZCOOL QingKe HuangYou', cursive;
-
    }
-
-
 
 #pokemones{
     display: flex;
@@ -16,15 +13,13 @@ body {
 
 }
 
-
-
 section#pokemones div label {
     display: block;
 }
 
 section#pokemones div{
     border: transparent;
-    padding: .5%;
+    padding: 2%;
     color: white;
     height: 150px;
     width: 150px;
@@ -34,10 +29,57 @@ section#pokemones div{
 .invisible {
     display: none;
     visibility: hidden;
+    
    }
 
 .visible {
     visibility: visible;
     position: static;
+    
+   }
+section#infoPoke.visible{
+    position: fixed;
+    right: 35%;
+    top: 40%;
+    transform: translateY(-50%);
    }
 
+/* img#imgHome{
+    width: 25px;
+
+} */
+#candySection{
+    position: fixed;
+    right: 30%;
+    top: 40%;
+    transform: translateY(-50%);
+ }
+ img#imgPokegoal {
+    width: 110%;
+}   
+
+img#btnEnter{
+    width: 20%
+}
+div#textCandySection{
+    font-weight: bold;
+    color: #304FE8;
+}
+
+@media only screen and (min-width: 375px) {
+    body { 
+       background-image: url('../src/img/celbackground.png'); 
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    body { 
+       background-image: url('../src/img/ipadLightBg.png'); 
+    }
+  }
+
+  @media only screen and (min-width: 950px) {
+    body { 
+       background-image: url('../src/img/fondo-1920-420248.jpg'); 
+    }
+  }
