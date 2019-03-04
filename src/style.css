@@ -50,7 +50,7 @@ section#infoPoke.visible{
 } */
 #candySection{
     position: fixed;
-    right: 30%;
+    right: 35%;
     top: 40%;
     transform: translateY(-50%);
  }
@@ -59,13 +59,17 @@ section#infoPoke.visible{
 }   
 
 img#btnEnter{
-    width: 20%
+    width: 20%;
+    margin: 20%;
 }
 div#textCandySection{
     font-weight: bold;
     color: #304FE8;
 }
 
+.content-play{
+    text-align: center;
+}
 @media only screen and (max-width: 570px) {
     body { 
        background-image: url('../src/img/celbackground.png'); 
