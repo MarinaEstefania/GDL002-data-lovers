@@ -34,7 +34,6 @@ describe('computeStats', () => {
     expect(typeof window.pokegoal.computeStats).toBe('function');
   });
   it('returns `57.3`', () => {
-    console.log('este es computeStats', window.pokegoal.computeStats(POKEMON.pokemon));
     expect(window.pokegoal.computeStats(POKEMON.pokemon)).toBe(57.3);
   });
 });

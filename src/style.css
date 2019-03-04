@@ -1,5 +1,5 @@
 body {
-   
+    background-image: url('../src/img/fondo-1920-420248.jpg'); 
     background-size: contain; 
     background-attachment: fixed;
     color: aliceblue;
@@ -66,20 +66,15 @@ div#textCandySection{
     color: #304FE8;
 }
 
-@media only screen and (min-width: 375px) {
+@media only screen and (max-width: 570px) {
     body { 
        background-image: url('../src/img/celbackground.png'); 
     }
-  }
-
-  @media only screen and (min-width: 768px) {
-    body { 
-       background-image: url('../src/img/ipadLightBg.png'); 
-    }
-  }
-
-  @media only screen and (min-width: 950px) {
-    body { 
-       background-image: url('../src/img/fondo-1920-420248.jpg'); 
-    }
+    #candySection{
+        position: fixed;
+        right: 1%;
+        top: 40%;
+        transform: translateY(-50%);
+        margin: 10%
+     }
   }
