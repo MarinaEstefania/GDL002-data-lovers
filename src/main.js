@@ -44,13 +44,14 @@ document.getElementById('dropDownSelecter').addEventListener('click', () => {
   }); 
   
 //DOM para funcion de MEDIA NUM CARAMELOS
-const btnCaramel = window.pokegoal.computeStats(POKEMON.pokemon);
+/* const btnCaramel = window.pokegoal.computeStats(POKEMON.pokemon);
 const muestraCaramelo = () => {
   document.getElementById('showCaramel').innerHTML = btnCaramel;
 };
 document.getElementById('avgCandy').addEventListener('click', muestraCaramelo);
+ */
 
-
+document.getElementById('showCaramel').innerHTML=window.pokegoal.computeStats(POKEMON.pokemon);
 //Funcion que Muestra en pantalla Img y nombre de TODOS los pokemon c/su div e informacion
 const showAll = (newData) => {
     const container = document.getElementById('pokemones');
@@ -72,7 +73,7 @@ const showAll = (newData) => {
       container.appendChild(contentDiv);
       contentDiv.addEventListener("click", function () { 
         showInformationOnePokemon(newData[i]);
-      contentDiv.addEventListener("click", rewind());
+      contentDiv.addEventListener("click", pokeInfo());
       });
     }
   };
@@ -87,19 +88,19 @@ const entrar = () => {
 
   showAll(miniData);
 };
-document.getElementById('btnPlay').addEventListener('click', entrar); 
+document.getElementById('btnEnter').addEventListener('click', entrar); 
 
-const rewind = () => {
+const pokeInfo = () => {
   document.getElementById('candySection').className = "invisible";
   document.getElementById('container').className = "invisible";
   document.getElementById('infoPoke').className = "visible";
 };  
 
-const home = () => {
+const main = () => {
   document.getElementById('candySection').className = "invisible";
   document.getElementById('container').className = "visible";
   document.getElementById('infoPoke').className = "invisible";
 };
 
 
-document.getElementById('btnBack').addEventListener('click', home);
+document.getElementById('btnBack').addEventListener('click', main);
