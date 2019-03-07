@@ -63,13 +63,21 @@ img#btnEnter{
     margin: 20%;
 }
 div#textCandySection{
-    font-weight: bold;
-    color: #304FE8;
+    color:rgb(30, 49, 85);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: transparent;
+    text-align: center;
+    font-size: large;
 }
+
 
 .content-play{
     text-align: center;
 }
+
 @media only screen and (max-width: 570px) {
     body { 
        background-image: url('../src/img/celbackground.png'); 
