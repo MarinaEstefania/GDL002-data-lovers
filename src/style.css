@@ -39,7 +39,7 @@ section#pokemones div{
    }
 section#infoPoke.visible{
     position: fixed;
-    right: 35%;
+    right: 42%;
     top: 40%;
     transform: translateY(-50%);
    }
@@ -72,7 +72,9 @@ div#textCandySection{
     text-align: center;
     font-size: large;
 }
-
+div#textCandySection p{
+    margin: 0;
+}
 
 .content-play{
     text-align: center;
@@ -90,3 +92,9 @@ div#textCandySection{
         margin: 10%
      }
   }
+
+  section#infoPoke.visible{
+
+    right: auto;
+    
+   }
