@@ -7,9 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou" rel="stylesheet">
+
 </head>
 
 <body>
+  <div id="charts"></div>
   <div class="containerAll">  
     <section id="candySection">
       <img id="imgPokegoal" src="../src/img/pokeGoal.png"><br>
@@ -46,6 +48,7 @@
           <option value="Psychic">Psiquico</option>
           <option value="Rock">Roca</option>
         </select>
+        <button id="btnChart">Grafica por Tipo</button>
         <br>
         <br>
         <section id="pokemones">
@@ -55,7 +58,7 @@
 
     <section id="infoPoke" class="invisible">
         <table id="pokeTable"></table>
-        <button id="btnBack" >Regresar</button>
+        <button id="btnBack">Regresar</button>
     </section>
 
   <div id="textCandySection">
@@ -63,10 +66,16 @@
     <div id="showCaramel"></div>
   </div>
 
+  <section id="chartSection" class="invisible">
+    <div id="chartDiv"></div>
+    <button id="btnChartBack">Regresar</button>
+  </section>
 
     <script src="./data/pokemon/pokemon.js"></script>
     <script src="data.js"></script>
     <script src="main.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="charts.js"></script>
   </div>
 </body>
 

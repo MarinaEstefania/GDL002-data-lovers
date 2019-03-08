@@ -69,8 +69,7 @@ const showAll = (newData) => {
       });
     }
   };
- 
- 
+
 //////////////////////////////////////////////////////HTML y CSS
 const entrar = () => {
   document.body.style.backgroundColor = "#f3f3f3";
@@ -94,7 +93,15 @@ const main = () => {
   document.getElementById('candySection').className = "invisible";
   document.getElementById('container').className = "visible";
   document.getElementById('infoPoke').className = "invisible";
+  document.getElementById('chartSection').className="invisible";
 };
 
 
 document.getElementById('btnBack').addEventListener('click', main);
+
+const funcChart = () => {
+  document.getElementById('container').className = "invisible";
+  document.getElementById('chartSection').className="visible";
+}
+document.getElementById('btnChart').addEventListener('click', funcChart);
+document.getElementById('btnChartBack').addEventListener('click', main);
