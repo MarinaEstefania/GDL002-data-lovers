@@ -39,7 +39,7 @@ section#pokemones div{
    }
 section#infoPoke.visible{
     position: fixed;
-    right: 35%;
+    right: 42%;
     top: 40%;
     transform: translateY(-50%);
    }
@@ -61,15 +61,26 @@ section#infoPoke.visible{
 img#btnEnter{
     width: 20%;
     margin: 20%;
+    cursor: pointer;
 }
 div#textCandySection{
-    font-weight: bold;
-    color: #304FE8;
+    color:rgb(30, 49, 85);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: transparent;
+    text-align: center;
+    font-size: large;
+}
+div#textCandySection p{
+    margin: 0;
 }
 
 .content-play{
     text-align: center;
 }
+
 @media only screen and (max-width: 570px) {
     body { 
        background-image: url('../src/img/celbackground.png'); 
