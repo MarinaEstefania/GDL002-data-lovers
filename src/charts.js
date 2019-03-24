@@ -25,7 +25,7 @@ const calculatePokemonTypes = pokemons => {  //15 TIPOS DE POKEMON
 calculateAllPokemonTypes(POKEMON.pokemon);
 
 
-/* const getRandomNumber = top => {
+ const getRandomNumber = top => {
   return Math.floor(Math.random() * top);
 };
 
@@ -38,7 +38,7 @@ const calculateBackground = () => {
   return [...Array(typeCount)].map(() => {
     return rgbGenerator();
   });
-}; */
+}; 
 
 const pokemonByTypeCount = pokemons => { //cantidad de POKEMON por tipo
   let allTheTypes = calculateAllPokemonTypes(pokemons);

@@ -1,6 +1,6 @@
   
 
-[**PokeGoal**](https://s5tefany.github.io/GDL002-data-lovers/src/)
+[**PokeGoal**](https://marinaestefania.github.io/GDL002-data-lovers/src/)
 es una Web App dirigida a jugadores de Pokemon GO interesados en mejorar su nivel competitivo.
 
 **Mediante la información que arroja la interfaz, el usuario puede tomar decisiones sobre como desea avanzar en el juego**, ya sea completando misiones, evolucionando a sus pokemon o atrapando a uno en específico, por mencionar algunos ejemplos.
