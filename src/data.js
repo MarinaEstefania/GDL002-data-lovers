@@ -25,8 +25,8 @@ proccessData:  (data) => {
   return newArray;
 },
 //FUNCION QUE FILTRA POR TIPO DE POKEMON
-filterType:  (data, type) =>{ 
-  const arrayFiltered = data.filter((Tipo, index) => { 
+filterType:  (data, type) =>{
+  const arrayFiltered = data.filter((Tipo, index) => {
     for (const i in data[index].Tipo){
       if(data[index].Tipo[i] === type) {
         return data[index].Tipo[i] === type;
@@ -38,7 +38,7 @@ filterType:  (data, type) =>{
 
 // FUNCION QUE ORDENA
 orderBy:  (selectedSort, miniData) => {
-  
+
   if (selectedSort == 1){
     return miniData.sort(function (prev, next){
       if (prev.id > next.id){
@@ -79,11 +79,11 @@ orderBy:  (selectedSort, miniData) => {
       }
       return 0;
     });
-  } 
+  }
 },
 
 //Funcion que lanza la Media del numero de Caramelos
-computeStats: (data) =>{ 
+computeStats: (data) =>{
   let totalCandyCount = 0;
   let numPokeCandyCount = 0;
   for (const i in data){
