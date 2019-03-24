@@ -24,8 +24,7 @@ const calculatePokemonTypes = pokemons => {  //15 TIPOS DE POKEMON
 
 calculateAllPokemonTypes(POKEMON.pokemon);
 
-
- const getRandomNumber = top => {
+/*  const getRandomNumber = top => {
   return Math.floor(Math.random() * top);
 };
 
@@ -38,7 +37,7 @@ const calculateBackground = () => {
   return [...Array(typeCount)].map(() => {
     return rgbGenerator();
   });
-}; 
+}; */
 
 const pokemonByTypeCount = pokemons => { //cantidad de POKEMON por tipo
   let allTheTypes = calculateAllPokemonTypes(pokemons);
@@ -51,40 +50,43 @@ const pokemonByTypeCount = pokemons => { //cantidad de POKEMON por tipo
 };
 console.log(pokemonByTypeCount(POKEMON.pokemon))
 
-  google.load('visualization','1.0', {'packages': ['corechart']});
-  google.setOnLoadCallback(chartType);
+const arrayForCharType = (tipo, cantidad) =>{
+  const array = []
+  
+  return array
+}
 
-  function chartType(){
-    const data = new google.visualization.DataTable();
-    data.addColumn('string','Tipo');
-    data.addColumn('number','Cantidad');
-    data.addRows(
-      [
-        ['Fuego',12],
-        ['Volador',19],
-        ['Dragon', 3],
-        ['Planta', 14],
-        ['Veneno',33],
-        ['Agua', 32],
-        ['Hielo', 5],
-        ['Insecto',12],
-        ['Fantasma', 3],
-        ['Normal',24],
-        ['Electrico',9],
-        ['Tierra', 14],
-        ['Pelea',8],
-        ['Psiquico',14],
-        ['Roca',11]
-      ]
-    );
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
 
-    var options= {'title':'Porcentaje por Tipo de Pokemon',
-                  'width':1000,
-                  'height':600
-                 };
+function drawChart() {
 
-    var chart = new google.visualization.PieChart(document.getElementById('chartDiv'));
-    chart.draw(data,options);
-  }
+  var data = google.visualization.arrayToDataTable([
+    ['Tipo', 'Cantidad'],
+    ['Fuego',12],
+    ['Volador',19],
+    ['Dragon', 3],
+    ['Planta', 14],
+    ['Veneno',33],
+    ['Agua', 32],
+    ['Hielo', 5],
+    ['Insecto',12],
+    ['Fantasma', 3],
+    ['Normal',24],
+    ['Electrico',9],
+    ['Tierra', 14],
+    ['Pelea',8],
+    ['Psiquico',14],
+    ['Roca',11]
+  ]);
 
+  var options = {
+    title: 'Porcentaje por tipo de Pokemon',
+    'width':900,
+    'height':500
+  };
 
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+  chart.draw(data, options);
+}

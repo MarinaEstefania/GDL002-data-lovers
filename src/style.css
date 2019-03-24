@@ -1,6 +1,6 @@
 body {
-    background-image: url('../src/img/fondo-1920-420248.jpg'); 
-    background-size: contain; 
+    background-image: url('../src/img/fondo-1920-420248.jpg');
+    background-size: contain;
     background-attachment: fixed;
     color: aliceblue;
     font-family: 'ZCOOL QingKe HuangYou', cursive;
@@ -10,7 +10,6 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
-
 }
 
 section#pokemones div label {
@@ -29,14 +28,13 @@ section#pokemones div{
 .invisible {
     display: none;
     visibility: hidden;
-    
    }
 
 .visible {
     visibility: visible;
     position: static;
-    
    }
+
 section#infoPoke.visible{
     position: fixed;
     right: 42%;
@@ -44,10 +42,6 @@ section#infoPoke.visible{
     transform: translateY(-50%);
    }
 
-/* img#imgHome{
-    width: 25px;
-
-} */
 #candySection{
     position: fixed;
     right: 35%;
@@ -56,7 +50,7 @@ section#infoPoke.visible{
  }
  img#imgPokegoal {
     width: 110%;
-}   
+}
 
 img#btnEnter{
     width: 20%;
@@ -82,8 +76,8 @@ div#textCandySection p{
 }
 
 @media only screen and (max-width: 570px) {
-    body { 
-       background-image: url('../src/img/celbackground.png'); 
+    body {
+       background-image: url('../src/img/celbackground.png');
     }
     #candySection{
         position: fixed;
