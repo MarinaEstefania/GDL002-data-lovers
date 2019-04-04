@@ -25,7 +25,7 @@ const averageByPokemonType = (proneToEvolvePokemons, pokemonsType) => {
 };
 
 const dataForChart = pokemon => {
-  const arrayToReturn = [['Tipo', 'Caramelos promedio']];
+  const arrayToReturn = [['Tipo', 'Media Aritmetica Caramelos']];
   const averageByPokemon = averageByPokemonType(
     proneToEvolvePokemons(pokemon),
     calculatePokemonTypes(pokemon),
@@ -39,21 +39,31 @@ const dataForChart = pokemon => {
 
   return arrayToReturn;
 };
+//Grafica Caramelos
 
-const drawCandyChart = () => {
+function drawCandyChart () {
+  
   // Promedio de los caramelos de Pokemon q sí evolucionan por tipo
-  const data = google.visualization.arrayToDataTable(dataForChart(POKEMON.pokemon));
+  var data = google.visualization.arrayToDataTable(dataForChart(POKEMON.pokemon));
 
-  const options = {
-    title: 'Porcentaje por tipo de Pokemon',
+  var options = {
+    title: 'Media aritmética de caramelos necesarios por tipo de Pokemon',
     width: 900,
     height: 500,
-  };
+        hAxis: {
+          title: 'Promedio de Caramelos',
+          minValue: 0
+        },
+        vAxis: {
+          title: 'Tipo de Pokemon'
+        }
+      };
+  
 
-  const chart = new google.visualization.BarChart(document.getElementById('chart'));
+      var chart = new google.visualization.BarChart(document.getElementById('chart'));
 
   chart.draw(data, options);
 };
 
-google.charts.load('current', { packages: ['corechart'] });
+google.charts.load('current', {packages: ['corechart', 'bar']});
 google.charts.setOnLoadCallback(drawCandyChart);

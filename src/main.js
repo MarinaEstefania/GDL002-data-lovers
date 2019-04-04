@@ -93,6 +93,7 @@ const main = () => {
   document.getElementById('container').className = 'visible';
   document.getElementById('infoPoke').className = 'invisible';
   document.getElementById('chartSection').className = 'invisible';
+  document.getElementById('candyChartSection').className = 'invisible';
 };
 
 document.getElementById('btnBack').addEventListener('click', main);
@@ -102,12 +103,13 @@ const funcChart = () => {
   document.getElementById('chartSection').className = 'visible';
 };
 
+document.getElementById('btnChart').addEventListener('click', funcChart);
+document.getElementById('btnChartBack').addEventListener('click', main);
+
 const showCandyChart = () => {
   document.getElementById('container').className = 'invisible';
   document.getElementById('candyChartSection').className = 'visible';
 };
-
-document.getElementById('btnChart').addEventListener('click', funcChart);
-document.getElementById('btnChartBack').addEventListener('click', main);
 // Candy chart event listener
 document.querySelector('#chartByCandy').addEventListener('click', showCandyChart);
+document.getElementById('btnChartBackCandy').addEventListener('click', main);
