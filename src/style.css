@@ -78,6 +78,13 @@ div#textCandySection p {
   text-align: center;
 }
 
+#chartSection{
+    text-align: center;
+}
+#candyChartSection{
+    text-align: center;
+}
+
 @media only screen and (min-width: 375px) {
   body {
     background-image: url('../src/img/fondo-1920-420248.jpg');
