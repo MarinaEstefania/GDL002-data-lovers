@@ -1,9 +1,11 @@
 body {
     background-image: url('../src/img/fondo-1920-420248.jpg');
-    background-size: contain;
+    background-repeat: repeat;
     background-attachment: fixed;
+    background-size: cover;
     color: aliceblue;
     font-family: 'ZCOOL QingKe HuangYou', cursive;
+    height: 100vh;
    }
 
 #pokemones{
@@ -23,6 +25,7 @@ section#pokemones div{
     height: 150px;
     width: 150px;
     text-align: center;
+    cursor: pointer;
 }
 
 .invisible {
