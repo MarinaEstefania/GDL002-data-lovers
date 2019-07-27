@@ -63,14 +63,14 @@ div#textCandySection {
   color: rgb(30, 49, 85);
   position: fixed;
   left: 0;
-  bottom: 0;
+  top: 0;
   width: 100%;
   background-color: transparent;
   text-align: center;
   font-size: large;
 }
 div#textCandySection p {
-  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .content-play {
