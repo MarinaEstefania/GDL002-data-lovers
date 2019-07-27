@@ -5,6 +5,7 @@ body {
   background-size: cover;
   color: aliceblue;
   font-family: 'ZCOOL QingKe HuangYou', cursive;
+  margin: 0;
 }
 .containerAll {
   display: flex;
