@@ -48,7 +48,8 @@ section#infoPoke.visible {
 }
 
 #candySection {
-  display: flex;
+  position: relative;
+  margin-top: 50%;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -80,11 +81,11 @@ div#textCandySection p {
   text-align: center;
 }
 
-#chartSection{
-    text-align: center;
+#chartSection {
+  text-align: center;
 }
-#candyChartSection{
-    text-align: center;
+#candyChartSection {
+  text-align: center;
 }
 
 @media only screen and (min-width: 375px) {
@@ -92,7 +93,20 @@ div#textCandySection p {
     background-image: url('../src/img/fondo-1920-420248.jpg');
     background-size: cover;
   }
+
   section#infoPoke.visible {
     font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #candySection {
+    margin-top: 40%;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  #candySection {
+    margin-top: 15%;
   }
 }
