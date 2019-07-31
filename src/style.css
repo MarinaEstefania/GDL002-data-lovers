@@ -48,8 +48,10 @@ section#infoPoke.visible {
 }
 
 #candySection {
+  display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 img#imgPokegoal {
   width: 100%;
